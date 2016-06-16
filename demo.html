@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="StyleSheet/popUpBox.css" rel="stylesheet" />
+    <script src="Scripts/lib/jquery-1.11.0.min.js"></script>
+    <script src="Scripts/src/popUpBox.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#showBottonId").on("click", function () {
+
+                var popUpTypeText = $("#popUpTypeId").val();
+                var popUpPositionText = $("#popUpPositionId").val();
+                var parentDivObj = $("#parentDivId");
+                var messageBox = null;
+
+                switch (popUpTypeText) {
+                    case "WarningMessageBox":
+                        messageBox = new gnostice.WarningMessageBox(parentDivObj, "This is a warning message box", true);
+                        break;
+                    case "InfoMessageBox":
+                        messageBox = new gnostice.InfoMessageBox(parentDivObj, "This is an information message box", true);
+                        break;
+                    case "SuccessMessageBox":
+                        messageBox = new gnostice.SuccessMessageBox(parentDivObj, "This is a success message box", true);
+                        break;
+                    case "ErrorMessageBox":
+                        messageBox = new gnostice.ErrorMessageBox(parentDivObj, "This is an error message box", true);
+                        break;
+                    case "ProgressPopUpBox":
+                        messageBox = new gnostice.ProgressPopUpBox(parentDivObj, true);
+                        messageBox.setMinimum(1);
+                        messageBox.setMaximum(100);
+
+                        var i = 1;
+                        var recursionCall = function () {
+                            console.log(i);
+                            if (i <= 10) { messageBox.setValue(10 * i); i++; }
+                            setTimeout(recursionCall, 1000);
+                        }
+                        recursionCall();
+
+
+                        //var i = 1;
+                        //setInterval(function () { if (i <= 10) { messageBox.setValue(10 * i); i++; } }, 500);
+                        break;
+                }
+
+                switch (popUpPositionText) {
+                    case "TopLeft":
+                        messageBox.show(gnostice.Position.TOPLEFT);
+                        break;
+                    case "TopRight":
+                        messageBox.show(gnostice.Position.TOPRIGHT);
+                        break;
+                    case "BottomLeft":
+                        messageBox.show(gnostice.Position.BOTTOMLEFT);
+                        break;
+                    case "BottomRight":
+                        messageBox.show(gnostice.Position.BOTTOMRIGHT);
+                        break;
+                    case "Center":
+                        messageBox.show(gnostice.Position.CENTER);
+                        break;
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <h3>Pop-Up Box JQuery Library (All in one)</h3>
+
+    Pop-Up Box Type :
+    <select id="popUpTypeId">
+        <option>WarningMessageBox</option>
+        <option>InfoMessageBox</option>
+        <option>SuccessMessageBox</option>
+        <option>ErrorMessageBox</option>
+        <option>ProgressPopUpBox</option>
+    </select>
+    Position :
+    <select id="popUpPositionId">
+        <option>TopLeft</option>
+        <option>TopRight</option>
+        <option>BottomLeft</option>
+        <option>BottomRight</option>
+        <option>Center</option>
+    </select>
+
+    <input id="showBottonId" type="button" value="Show" />
+
+    <div id="parentDivId" style="height:350px;width:600px;background-color:aquamarine;position:relative;">
+         <p>The standard Lorem Ipsum passage, used since the 1500s</p>
+
+        <span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+        Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+        
+            </span>
+    </div>
+   
+</body>
+</html>

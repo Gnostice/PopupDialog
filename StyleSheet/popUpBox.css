@@ -1,0 +1,115 @@
+﻿.git-popUpBox-overlay
+{
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(92, 92, 92);
+	z-index:5555;
+	-moz-opacity: 0.65;
+	opacity:.65;
+	filter: alpha(opacity=65);
+}
+
+.git-popUpBox-messagebox {
+    display:block;
+	margin: 10px 0px;
+	padding: 15px 10px 15px 50px;
+	background-repeat: no-repeat;
+    background-position: 10px center;
+    position: relative;
+    z-index:5005;
+}
+
+.git-popUpBox-warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('Images/warning.png');
+}
+
+.git-popUpBox-warning-color {
+     background-color: #FEEFB3;
+}
+
+.git-popUpBox-info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('Images/info.png');
+}
+.git-popUpBox-info-color {
+    background-color: #BDE5F8;
+}
+
+.git-popUpBox-success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image: url('Images/success.png');
+}
+
+.git-popUpBox-success-color {
+     background-color: #DFF2BF;
+}
+
+.git-popUpBox-error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('Images/error.png');
+}
+
+.git-popUpBox-error-color {
+    background-color: #FFBABA;
+}
+
+.git-popUpBox-validation {
+    color: #D63301;
+    background-color: #FFCCBA;
+    background-image: url('Images/validation.png');
+}
+.git-popUpBox-validation-color {
+     background-color: #FFCCBA;
+}
+.git-popUpBox-popupbox {
+    padding:10px 15px 10px 15px;
+    z-index:5555;
+}
+
+.git-popUpBox-popupbox-message {
+    text-align:left;
+    margin:8px 0px 8px 0px;
+     
+}
+.git-popUpBox-popupbox-message-color {
+    background-color: #BDE5F8;
+}
+
+.git-popUpBox-popupbox-cancel {
+
+    background-color: #d4b9b9; 
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    float:right;
+
+} 
+
+.git-popUpBox-closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.git-popUpBox-closebtn:hover {
+    color: black;
+}
