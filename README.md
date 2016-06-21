@@ -1,4 +1,4 @@
-PopupDialog jQuery Library
+jQuery PopupDialog library
 
 More information: http://www.gnostice.com/blog/291/jQuery_PopupDialog_library
 
