@@ -20,8 +20,8 @@ var gnostice;
     /**
      * popUpBox to provide popup box on any HTML element
      */
-    var popUpBox = (function () {
-        function popUpBox(placeholder, overlay) {
+    var PopupDialog = (function () {
+        function PopupDialog(placeholder, overlay) {
             if (overlay === void 0) { overlay = true; }
             this.parentHTMLElement = placeholder;
             if (overlay) {
@@ -67,7 +67,7 @@ var gnostice;
         * Show popUpBox
         * @param position To set the absolute predefined positions.
         */
-        popUpBox.prototype.show = function (position) {
+        PopupDialog.prototype.show = function (position) {
             switch (position) {
                 case Position.BOTTOMLEFT:
                     $(this.popUpPlaceholder).css({ "left": "5px", "right": "", "top": "", "bottom": "5px" });
@@ -101,7 +101,7 @@ var gnostice;
         * Show popUpBox
         * @param sleep A string or a number determining how log the hiding transition proceed.
         */
-        popUpBox.prototype.hide = function (sleep) {
+        PopupDialog.prototype.hide = function (sleep) {
             if (sleep != null) {
                 $(this.overlayHTMLElement).hide();
                 $(this.popUpPlaceholder).fadeOut(sleep);
@@ -111,9 +111,9 @@ var gnostice;
                 $(this.popUpPlaceholder).hide();
             }
         };
-        return popUpBox;
+        return PopupDialog;
     }());
-    gnostice.popUpBox = popUpBox;
+    gnostice.PopupDialog = PopupDialog;
     var MessageBox = (function (_super) {
         __extends(MessageBox, _super);
         function MessageBox(placeholder, message, overlay) {
@@ -134,7 +134,7 @@ var gnostice;
             $(this.messageBoxHTMLElement).addClass(className);
         };
         return MessageBox;
-    }(popUpBox));
+    }(PopupDialog));
     gnostice.MessageBox = MessageBox;
     /**
      * WarningMessageBox to show warning messages in popUpBox
@@ -285,6 +285,6 @@ var gnostice;
             }
         };
         return ProgressPopUpBox;
-    }(popUpBox));
+    }(PopupDialog));
     gnostice.ProgressPopUpBox = ProgressPopUpBox;
 })(gnostice || (gnostice = {}));
